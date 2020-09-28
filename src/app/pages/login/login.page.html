@@ -1,0 +1,27 @@
+<ion-content>
+    <ion-avatar class="logo">
+        <img src="./assets/icon/favicon.png" alt="logo">
+    </ion-avatar>
+    <ion-list>
+        <ion-item>
+            <ion-label>账&emsp;号：</ion-label>
+            <ion-input type="text" placeholder="由字母、数字、下划线组成" [(ngModel)]="model.username" (ionChange)="onChange(1)"
+                (ionBlur)="onBlur()"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>密&emsp;码：</ion-label>
+            <ion-input type="password" placeholder="6-20位数字或字母" [(ngModel)]="model.password" (ionChange)="onChange(2)"
+                (ionBlur)="onBlur()"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-label *ngIf="errorMsg" class="error-message"> {{errorMsg}} </ion-label>
+    <ion-button class="login" expand="block" type="submit" [disabled]='!status' (click)="onLogin()">登 录</ion-button>
+    <ion-row text-center>
+        <ion-col>
+            <ion-button fill="clear" size="small" color="dark">找回密码？</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button fill="clear" size="small" color="dark" routerLink="/register">注册新用户</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>
